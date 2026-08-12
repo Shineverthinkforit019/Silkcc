@@ -43,14 +43,8 @@ dependencies {
     include("io.github.racoondog:norbit:${project.norbit_version}")
     implementation 'net.java.dev.jna:jna:5.13.0'
     
-    // NanoVG - CHỈ GIỮ IMPLEMENTATION, XÓA HẾT NATIVES
-    implementation(platform("org.lwjgl:lwjgl-bom:3.3.3"))
-    include(platform("org.lwjgl:lwjgl-bom:3.3.3"))
-    implementation("org.lwjgl:lwjgl-nanovg")
-    include("org.lwjgl:lwjgl-nanovg")
-    
-    // KHÔNG include/runtimeOnly natives để tránh crash trên Android
-    // Đã xóa: runtimeOnly("org.lwjgl:lwjgl-nanovg::natives-*")
+    // ĐÃ XÓA HOÀN TOÀN lwjgl-nanovg (gây crash trên Android)
+    // Không cần thư viện này để chạy mod
 }
 
 processResources {
